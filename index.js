@@ -5,8 +5,6 @@ const { application } = require('express');
 const heroesRouter = require('./controlller/superHeros.controller');
 const app = express()
 
-
-
 //Seguridad
 app.use(helmet());
 app.use(cors());
