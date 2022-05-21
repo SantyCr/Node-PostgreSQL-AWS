@@ -8,7 +8,7 @@ const app = express()
 //Seguridad
 app.use(helmet());
 app.use(cors());
-//Desabilitar cavesera x-powered-by
+//Deshabilitar cavesera x-powered-by
 app.disable('x-powered-by');
 
 //Rutas
