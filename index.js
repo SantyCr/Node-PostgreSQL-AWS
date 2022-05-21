@@ -5,10 +5,14 @@ const { application } = require('express');
 const heroesRouter = require('./controlller/superHeros.controller');
 const app = express()
 
+
+//Middleware
+app.use(express.json())
+
 //Seguridad
 app.use(helmet());
 app.use(cors());
-//Deshabilitar cavesera x-powered-by
+//Desabilitar cavesera x-powered-by
 app.disable('x-powered-by');
 
 //Rutas
