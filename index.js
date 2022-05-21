@@ -1,9 +1,20 @@
 const express = require('express')
-const superHeroes = require('./model/superHeroes.model')
-const name = require('./model/superHeroes.model')
+const helmet = require('helmet');
+const cors = require('cors');
+const { application } = require('express');
+const heroesRouter = require('./controlller/superHeros.controller');
 const app = express()
-const port = 3000
 
-superHeroes()
-app.get('/', (req, res) => res.json({asd: 'Hello World!'}))
+
+
+//Seguridad
+app.use(helmet());
+app.use(cors());
+//Desabilitar cavesera x-powered-by
+app.disable('x-powered-by');
+
+//Rutas
+app.use(heroesRouter);
+
+const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
