@@ -1,19 +1,21 @@
 const express = require('express');
-const { getHeroes } = require('../model/superHeroes.model');
+const { getHeroes, putHeroes, postHeroes, deleteHeroes } = require('../model/superHeroes.model');
 
 const router = express.Router();
 
 router.get("/sh",(req, res) => {
-    res.json(getHeroes())
+    getHeroes((resp) => {
+        res.json(resp)
+    });
 })
 router.post("/sh",(req, res) => {
-    res.json(getHeroes())
+    res.json(postHeroes(req.body))
 })
 router.put("/sh",(req, res) => {
-    res.json(getHeroes())
+    res.json(putHeroes(req.body))
 })
-router.delete("/sh",(req, res) => {
-    res.json(getHeroes())
+router.delete("/sh/:id",(req, res) => {
+    res.json(deleteHeroes(req.params.id))
 })
 
 
